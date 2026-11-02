@@ -6,6 +6,7 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { buttonVariants } from "@/components/ui/button";
 import { home } from "@/content/home";
+import { withBase } from "@/lib/base-path";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
@@ -38,7 +39,7 @@ export function Header({
 
         <div className="flex items-center gap-2">
           <a
-            href={ctaHref}
+            href={ctaHref.startsWith("/") ? withBase(ctaHref) : ctaHref}
             onClick={() => {
               track("cta_clicked", { location: "header" });
               setOpen(false);

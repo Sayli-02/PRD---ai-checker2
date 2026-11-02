@@ -1,8 +1,10 @@
 import { brand } from "@/config/brand";
+import { siteOrigin } from "@/lib/base-path";
 import { getPosts } from "@/lib/blog";
 
 // llms.txt: a short, plain summary for AI crawlers. Built from the same config and posts as the site.
 export async function GET() {
+  const site = siteOrigin(brand.url);
   const posts = await getPosts();
   const body = `# ${brand.name}
 
@@ -12,14 +14,14 @@ ${brand.name} is an agency for SEO (ranking on Google) and AEO, Answer Engine Op
 
 ## Key pages
 
-- [Home and free AI Visibility Check](${brand.url}/)
-- [Blog](${brand.url}/blog)
-- [Privacy policy](${brand.url}/privacy)
-- [Terms](${brand.url}/terms)
+- [Home and free AI Visibility Check](${site}/)
+- [Blog](${site}/blog)
+- [Privacy policy](${site}/privacy)
+- [Terms](${site}/terms)
 
 ## Blog posts
 
-${posts.map((p) => `- [${p.title}](${brand.url}/blog/${p.slug}): ${p.description}`).join("\n")}
+${posts.map((p) => `- [${p.title}](${site}/blog/${p.slug}): ${p.description}`).join("\n")}
 `;
   return new Response(body, { headers: { "content-type": "text/plain; charset=utf-8" } });
 }

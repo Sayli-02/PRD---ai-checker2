@@ -9,6 +9,7 @@ import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { checkCopy, errorCopy } from "@/content/check";
 import { readUtm, track } from "@/lib/analytics";
+import { withBase } from "@/lib/base-path";
 import { contactSchema, otpSchema, type ContactInput } from "@/lib/schemas";
 
 const c = checkCopy.contact;
@@ -47,7 +48,7 @@ export function ContactStep({
   async function sendLead(values: ContactInput) {
     setServerError(null);
     try {
-      const res = await fetch(`/api/check/${checkId}/lead`, {
+      const res = await fetch(withBase(`/api/check/${checkId}/lead`), {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ ...values, utm: readUtm() }),
@@ -69,7 +70,7 @@ export function ContactStep({
   async function verify({ code }: { code: string }) {
     setServerError(null);
     try {
-      const res = await fetch(`/api/check/${checkId}/verify`, {
+      const res = await fetch(withBase(`/api/check/${checkId}/verify`), {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ code }),

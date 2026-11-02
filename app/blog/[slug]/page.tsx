@@ -9,6 +9,7 @@ import { PostCard } from "@/components/blog/post-card";
 import { JsonLd } from "@/components/json-ld";
 import { PageShell } from "@/components/page-shell";
 import { brand } from "@/config/brand";
+import { siteOrigin, withBase } from "@/lib/base-path";
 import { formatDate, headings, related, slugify } from "@/lib/blog";
 import { getPost, getPosts } from "@/lib/blog";
 
@@ -68,7 +69,8 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
   if (!post) notFound();
 
   const toc = headings(post.content);
-  const url = `${brand.url}/blog/${post.slug}`;
+  const site = siteOrigin(brand.url);
+  const url = `${site}/blog/${post.slug}`;
 
   // The mid-post CTA goes between sections, at the halfway point.
   const sections = post.content.split(/\n(?=## )/);
@@ -94,15 +96,15 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
               datePublished: post.date,
               dateModified: post.updated,
               author: { "@type": "Person", name: post.author },
-              publisher: { "@type": "Organization", name: brand.name, url: brand.url },
+              publisher: { "@type": "Organization", name: brand.name, url: site },
               mainEntityOfPage: url,
-              image: post.coverImage ? `${brand.url}${post.coverImage}` : `${url}/opengraph-image`,
+              image: post.coverImage ? `${brand.url}${withBase(post.coverImage)}` : `${url}/opengraph-image`,
             },
             {
               "@type": "BreadcrumbList",
               itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Home", item: brand.url },
-                { "@type": "ListItem", position: 2, name: "Blog", item: `${brand.url}/blog` },
+                { "@type": "ListItem", position: 1, name: "Home", item: site },
+                { "@type": "ListItem", position: 2, name: "Blog", item: `${site}/blog` },
                 { "@type": "ListItem", position: 3, name: post.title, item: url },
               ],
             },

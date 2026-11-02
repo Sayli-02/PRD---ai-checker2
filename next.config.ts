@@ -1,9 +1,15 @@
 import type { NextConfig } from "next";
+import { BASE_PATH } from "./lib/base-path";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  basePath: BASE_PATH || undefined,
+  async redirects() {
+    return BASE_PATH
+      ? [{ source: "/", destination: BASE_PATH, permanent: false, basePath: false }]
+      : [];
+  },
   turbopack: {
     rules: {
       "*.css": {

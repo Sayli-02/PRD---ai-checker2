@@ -13,6 +13,7 @@ import { Select } from "@/components/ui/select";
 import { categories, errorCopy } from "@/content/check";
 import { home } from "@/content/home";
 import { readUtm, track } from "@/lib/analytics";
+import { withBase } from "@/lib/base-path";
 import { checkInputSchema, type CheckInput } from "@/lib/schemas";
 
 const f = home.hero.form;
@@ -43,7 +44,7 @@ export function CheckForm({ location }: { location: "hero" | "final" }) {
     // Cloudflare's widget writes its token into a hidden field named cf-turnstile-response.
     const token = new FormData(event?.target as HTMLFormElement).get("cf-turnstile-response");
     try {
-      const res = await fetch("/api/check", {
+      const res = await fetch(withBase("/api/check"), {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({

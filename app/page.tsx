@@ -15,8 +15,10 @@ import { Testimonials } from "@/components/home/testimonials";
 import { TrustStrip } from "@/components/home/trust-strip";
 import { brand } from "@/config/brand";
 import { home } from "@/content/home";
+import { siteOrigin } from "@/lib/base-path";
 
 export default function Home() {
+  const site = siteOrigin(brand.url);
   return (
     <>
       <JsonLd
@@ -25,13 +27,13 @@ export default function Home() {
           "@graph": [
             {
               "@type": "Organization",
-              "@id": `${brand.url}/#organization`,
+              "@id": `${site}/#organization`,
               name: brand.name,
-              url: brand.url,
+              url: site,
               description: brand.description,
-              logo: `${brand.url}/apple-icon`,
+              logo: `${site}/apple-icon`,
             },
-            { "@type": "WebSite", "@id": `${brand.url}/#website`, url: brand.url, name: brand.name },
+            { "@type": "WebSite", "@id": `${site}/#website`, url: site, name: brand.name },
             {
               "@type": "FAQPage",
               mainEntity: home.faq.items.map((i) => ({

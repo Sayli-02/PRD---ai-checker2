@@ -8,6 +8,7 @@ import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { checkCopy, engineLabels, errorCopy, ENGINES, type EngineName } from "@/content/check";
+import { withBase } from "@/lib/base-path";
 import { track } from "@/lib/analytics";
 import { progressSchema, type EngineStatus, type Progress } from "@/lib/schemas";
 import { ContactStep } from "./contact-step";
@@ -57,7 +58,7 @@ export function CheckFlow({ id, contactDuringProgress }: { id: string; contactDu
   const viewed = useRef(false);
 
   const load = useCallback(async () => {
-    const res = await fetch(`/api/check/${id}`, { cache: "no-store" });
+    const res = await fetch(withBase(`/api/check/${id}`), { cache: "no-store" });
     if (res.status === 404) {
       setError("notfound");
       return null;
@@ -106,7 +107,7 @@ export function CheckFlow({ id, contactDuringProgress }: { id: string; contactDu
   async function retry() {
     setRetrying(true);
     try {
-      const res = await fetch(`/api/check/${id}/retry`, { method: "POST" });
+      const res = await fetch(withBase(`/api/check/${id}/retry`), { method: "POST" });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         setError(data.error ?? errorCopy.engineSlow);

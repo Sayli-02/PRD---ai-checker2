@@ -1,6 +1,7 @@
 import { Section } from "@/components/layout/section";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { home } from "@/content/home";
+import { withBase } from "@/lib/base-path";
 import { icons } from "./icons";
 
 const h = home.hero;
@@ -11,9 +12,9 @@ function HeroImage() {
   return (
     <>
       <picture className="absolute inset-0 -z-10 opacity-40 lg:left-[34%] lg:opacity-100">
-        <source srcSet="/images/hero.avif" type="image/avif" />
+        <source srcSet={withBase("/images/hero.avif")} type="image/avif" />
         <img
-          src="/images/hero.webp"
+          src={withBase("/images/hero.webp")}
           alt={h.imageAlt}
           width={1600}
           height={1000}
