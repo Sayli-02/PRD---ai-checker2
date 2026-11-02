@@ -7,6 +7,7 @@
 > - Visual reference: `/design/Sample Dashboard.png`
 > In Cursor, attach them with `@` mentions (paths contain spaces, so quote them in any terminal command).
 > Work phase by phase. Do not start a phase until the previous phase's acceptance checks pass. One pull request per phase.
+> **Active variation: V2.** Citeo at `/` (cream, Newsreader, lavender). Branch `citeo-preview`, remote `citeo-v2`. Do not change V3 or V1 production unless asked.
 
 ---
 

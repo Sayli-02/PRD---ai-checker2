@@ -5,6 +5,8 @@ alwaysApply: true
 
 Read `CURSOR_PLAN.md`, `docs/PRD — AI Visibility Landing Page (Codename Project Cite).md` and look at `design/Sample Dashboard.png` before writing code.
 
+Active variation is **V2** (Citeo at `/`). Put new work on branch `citeo-preview` and remote `citeo-v2`. Do not change V3 or V1 production unless asked.
+
 - Work phase by phase. Do not start a phase until the previous phase's acceptance checks pass. One pull request per phase.
 - Match the reference exactly for layout, spacing, radius, type and colour. Measure from the image rather than guessing.
 - Brand, copy and colours come from `config/brand.ts`, `content/*.ts` and CSS variables. Never hard-code them.

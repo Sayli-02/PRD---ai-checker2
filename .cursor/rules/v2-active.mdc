@@ -1,0 +1,14 @@
+---
+description: V2 Citeo is the active product. Put all new work there.
+alwaysApply: true
+---
+
+# Active variation is V2
+
+V2 is finalized as the product we change. Treat `/` (Citeo cream, Newsreader, lavender) as the site.
+
+- Edit `app/page.tsx`, `components/home/`, `config/brand.ts`, `content/*.ts`, and shared check/blog code.
+- Visual source of truth is `design/Sample Dashboard.png`.
+- Git: stay on `citeo-preview`. Commit and push to remote `citeo-v2` (`PRD---ai-checker2`).
+- Do not edit `app/v3/**`, `components/v3/**`, `config/v3.ts`, `content/v3.ts`, or `app/v3.css` unless the user names V3.
+- Do not push to `origin` (V1 production) or `citeo-v3` unless the user asks.
