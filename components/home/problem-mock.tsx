@@ -72,7 +72,7 @@ export function ProblemMock() {
           <ArrowRight aria-hidden />
         </Link>
       </Reveal>
-      <Reveal delay={120}>
+      <Reveal delay={160} from="right">
         <ChatCard />
       </Reveal>
     </Section>

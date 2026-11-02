@@ -14,6 +14,7 @@ export function SeoVsAeo() {
         <h2 className="mt-3 max-w-2xl text-[2.25rem] leading-[1.08] sm:text-5xl">{c.title}</h2>
       </Reveal>
 
+      <Reveal delay={140}>
       <table className="mt-8 block w-full border-collapse md:table">
         <caption className="sr-only">{c.title}</caption>
         <thead className="sr-only md:not-sr-only md:table-header-group">
@@ -47,6 +48,7 @@ export function SeoVsAeo() {
         </tbody>
       </table>
       <p className="mt-6 max-w-xl text-lg text-tone-muted">{c.note}</p>
+      </Reveal>
     </Section>
   );
 }

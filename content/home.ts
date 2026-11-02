@@ -26,7 +26,7 @@ export const home = {
       { icon: "Users", label: "More customers" },
       { icon: "Zap", label: "Done for you" },
     ] as { icon: IconName; label: string }[],
-    imageAlt: "",
+    imageAlt: "Night photograph of a curved glass building. Decorative, not a client photo.",
     form: {
       title: "Free AI Visibility Check",
       intro: "See how often AI tools recommend your business and what you can do to improve.",

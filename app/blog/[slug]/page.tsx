@@ -184,7 +184,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         )}
 
         {toc.length > 2 && (
-          <nav aria-labelledby="toc-title" className="mt-8 rounded-card bg-surface-cream p-5">
+          <nav aria-labelledby="toc-title" className="blog-toc mt-8 rounded-card p-5">
             <p id="toc-title" className="font-serif text-xl">
               In this post
             </p>

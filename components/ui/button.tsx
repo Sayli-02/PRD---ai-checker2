@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 // primary: indigo, for use on cream cards. cream: the header CTA on dark. soft: lavender pill.
 export const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-control font-semibold transition-colors select-none disabled:pointer-events-none disabled:opacity-60 [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-control font-semibold transition-[color,background-color,transform] select-none duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:motion-safe:scale-[1.03] active:motion-safe:scale-[0.98] disabled:pointer-events-none disabled:opacity-60 motion-reduce:transition-colors [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {

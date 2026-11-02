@@ -11,19 +11,19 @@ const h = home.hero;
 function HeroImage() {
   return (
     <>
-      <picture className="absolute inset-0 -z-10 opacity-40 lg:left-[34%] lg:opacity-100">
-        <source srcSet={withBase("/images/hero.avif")} type="image/avif" />
+      <picture className="absolute inset-0 -z-10 opacity-50 lg:left-[28%] lg:opacity-100">
+        <source srcSet={withBase("/images/hero-building.avif")} type="image/avif" />
         <img
-          src={withBase("/images/hero.webp")}
+          src={withBase("/images/hero-building.webp")}
           alt={h.imageAlt}
-          width={1600}
-          height={1000}
+          width={1920}
+          height={1080}
           fetchPriority="high"
           decoding="async"
-          className="size-full object-cover object-right"
+          className="hero-photo size-full origin-[72%_42%] object-cover object-[72%_42%]"
         />
       </picture>
-      <div aria-hidden className="hero-overlay absolute inset-0 -z-10 max-lg:opacity-60" />
+      <div aria-hidden className="hero-overlay absolute inset-0 -z-10 max-lg:opacity-70" />
     </>
   );
 }
@@ -35,7 +35,7 @@ export function Hero() {
       backdrop={<HeroImage />}
       containerClassName="pt-10 pb-14 lg:pt-24 lg:pb-28"
     >
-      <div className="max-w-xl">
+      <div className="hero-copy max-w-xl">
         <Eyebrow>{h.eyebrow}</Eyebrow>
         <h1 className="mt-3 text-[2.25rem] leading-[1.05] sm:text-6xl lg:text-[4rem]">
           {h.titleLead}{" "}

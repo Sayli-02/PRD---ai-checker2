@@ -4,7 +4,7 @@ import { formatDate, type Post } from "@/lib/blog";
 
 export function PostCard({ post }: { post: Post }) {
   return (
-    <article className="group relative flex flex-col rounded-card border border-tone-line bg-tone-surface p-5 transition-shadow hover:shadow-[0_16px_32px_-20px_rgb(20_17_15/0.4)] motion-reduce:transition-none">
+    <article className="post-card group relative flex h-full flex-col">
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-tone-muted">
         <Pill className="px-2.5 py-0.5 text-xs">{post.category}</Pill>
         <time dateTime={post.date}>{formatDate(post.date)}</time>

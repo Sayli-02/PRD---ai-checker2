@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/home/reveal";
 import { Logo } from "@/components/logo";
 import { WhatsAppLink } from "@/components/whatsapp-link";
 import { brand } from "@/config/brand";
@@ -10,7 +11,7 @@ export function Footer() {
   const socials = Object.entries(brand.socials).filter(([, url]) => url);
   return (
     <footer data-tone="dark" className="border-t border-tone-line">
-      <div className="mx-auto grid w-full max-w-6xl gap-8 px-5 py-10 sm:px-8 md:grid-cols-[1.2fr_1fr_1fr]">
+      <Reveal className="mx-auto grid w-full max-w-6xl gap-8 px-5 py-10 sm:px-8 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
           <Logo />
           <p className="mt-3 max-w-xs text-tone-muted">{brand.tagline}</p>
@@ -39,7 +40,7 @@ export function Footer() {
             </Link>
           ))}
         </nav>
-      </div>
+      </Reveal>
       <p className="border-t border-tone-line px-5 py-4 text-center text-sm text-tone-muted">&copy; {brand.name}</p>
     </footer>
   );

@@ -15,8 +15,11 @@ export const metadata: Metadata = {
 export default function BlogIndex({ searchParams }: PageProps<"/blog">) {
   return (
     <PageShell>
-      <div className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-8 md:py-16">
+      <div className="blog-index mx-auto w-full max-w-6xl px-5 py-12 sm:px-8 md:py-16">
         <h1 className="text-5xl font-bold sm:text-6xl">Blog</h1>
+        <p className="mt-4 max-w-[40ch] text-lg text-tone-muted">
+          Plain-English guides on getting found on Google and named by AI assistants.
+        </p>
         <Suspense fallback={<p className="mt-8 text-tone-muted">Loading posts…</p>}>
           <PostList searchParams={searchParams} />
         </Suspense>

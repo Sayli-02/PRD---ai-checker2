@@ -16,7 +16,7 @@ export function HowWeWork() {
       <ol className="mt-10 grid gap-8 md:grid-cols-3 md:gap-0 md:divide-x md:divide-line-dark">
         {h.steps.map((step, i) => (
           <li key={step.title} className="md:px-8 md:first:pl-0 md:last:pr-0">
-            <Reveal delay={i * 100}>
+            <Reveal delay={i * 160}>
               <p aria-hidden className="font-serif text-6xl leading-none text-tone-accent italic">
                 {i + 1}
               </p>

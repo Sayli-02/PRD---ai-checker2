@@ -2,6 +2,7 @@ import { Section } from "@/components/layout/section";
 import { brand } from "@/config/brand";
 import { home } from "@/content/home";
 import { getCheckCount } from "@/lib/stats";
+import { Reveal } from "./reveal";
 
 const t = home.trust;
 
@@ -10,14 +11,20 @@ export async function TrustStrip() {
   const count = brand.features.showCheckCount ? await getCheckCount() : null;
   return (
     <Section tone="cream" className="border-b border-tone-line" containerClassName="flex flex-wrap items-center gap-x-8 gap-y-4 py-6">
-      <p className="text-sm text-tone-muted">{t.label}</p>
+      <Reveal>
+        <p className="text-sm text-tone-muted">{t.label}</p>
+      </Reveal>
       <ul className="flex flex-wrap items-center gap-x-8 gap-y-3 sm:divide-x sm:divide-line-cream">
-        {t.engines.map((name) => (
+        {t.engines.map((name, i) => (
           <li key={name} className="flex items-center gap-2.5 font-semibold sm:pl-8 sm:first:pl-0">
-            <span aria-hidden className="grid size-7 place-items-center rounded-full bg-accent-soft text-xs font-bold text-accent-strong">
-              {name[0]}
-            </span>
-            {name}
+            <Reveal delay={80 + i * 90}>
+              <span className="flex items-center gap-2.5">
+                <span aria-hidden className="grid size-7 place-items-center rounded-full bg-accent-soft text-xs font-bold text-accent-strong">
+                  {name[0]}
+                </span>
+                {name}
+              </span>
+            </Reveal>
           </li>
         ))}
       </ul>
